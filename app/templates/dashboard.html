@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock%}
+
+{% block content %}
+
+<h1 class="page-title">Welcome to dashboard {{current_user.username}} </h1> 
+<nav>
+    <a href="{{ url_for('main.profile') }}">View Profile</a>  
+</nav>
+    <div class="logout-wrapper">
+        <a href="{{ url_for('main.logout') }}" class="logout">Logout</a>
+    </div>
+
+
+<div class="search-add-container">
+    <!--we have added a form for searching the required notes-->
+    <form method="GET" action="{{ url_for('main.dashboard') }}" class="search-form">
+        <input type="text" name="q" placeholder="Search your notes here..." value="{{ request.args.get('q', '') }}" required>
+        <!--if block for clear the search place, as if search_item is there shows clear buttor, if not not shows  -->
+        {% if request.args.get('q') %}
+            <a href="{{ url_for('main.dashboard') }}" class="clear-search">Clear</a>
+        {% else %}
+            <button type="submit">Search</button>
+        {% endif %}
+    </form>
+    <div>
+    <!--adding note(form submit) here, submit button-->
+    <button id="addNoteBtn" class="note-btn add-note-btn">+ Add Note</button>
+    </div>
+    <div id="newNoteForm" class="hidden-form">
+        <form method="POST" action="{{ url_for('main.dashboard') }}">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.title.label }}
+                {{ form.title(size=40, class_='input-field') }}<br>
+
+                {{ form.content.label }}<br>
+                {{ form.content(rows=3, cols=50, class_='input-field') }}
+            </div>
+
+            <div>
+                {{ form.submit(class_='note-btn submit-btn', value='Save Note') }}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- retriving the added notes, and make them alingn in lists-->
+{% if notes %}
+    <ul class="notes-list">
+        {% for note in notes %}
+            <li class="note-card">
+                <div class="note-meta">
+                    <strong class="note_date">
+                        {% if note.date_updated and note.date_updated != note.date_created %}
+                            Updated_on: {{ note.date_updated.strftime('%b %d, %Y %I:%M %p') }}
+                        {% else %}
+                            Created_on: {{ note.date_created.strftime('%b %d, %Y %I:%M %p') }}
+                        {% endif %}
+                    </strong>
+                        <form action="{{ url_for('main.delete_note', note_id = note.id) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="note-del">Delete</button>
+                        </form>
+                        <a href="{{ url_for('main.edit_note', note_id=note.id) }} " class="note-edit">Edit</a>
+                </div>
+                <div class="note-title">Title: {{ note.title }}</div>
+                
+                <div class="note-content">{{ note.content }}</div>
+    
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No notes yet. Start adding!, Click on +Add Note</p>
+{% endif %}
+
+
+
+
+
+
+<script>
+    const addNoteBtn = document.getElementById("addNoteBtn")
+    const newNoteForm = document.getElementById("newNoteForm")
+
+    addNoteBtn.addEventListener('click', () => {
+        if(newNoteForm.style.display == 'none' || newNoteForm.style.display === "") {
+            newNoteForm.style.display = "block"
+            addNoteBtn.textContent = "Hide Note Form";
+        }else{
+            newNoteForm.style.display = "none";
+            addNoteBtn.textContent = "Add New Note";
+        }
+    })
+</script>
+
+{% endblock %}

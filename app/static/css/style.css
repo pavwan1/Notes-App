@@ -1,0 +1,525 @@
+*{
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    padding-top: 30px;
+}
+
+.container{
+    max-width: 800px;
+    margin: 30px auto 80px auto; 
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.container ul{
+    list-style-type: none;
+}
+
+/* navbar */
+nav{
+    background-color: #444;
+    padding: 10px 20px;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1000;
+}
+
+nav a{
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+footer{
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: fixed ;
+    bottom: 0;
+    padding: 0px ;
+    left: 0;
+    right: 0;
+    margin: 0;
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+
+}
+form:hover{
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    
+    form textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus{
+        border-color: #007bff;
+        outline: none;
+    }
+
+    form button,
+    form input[type="submit"]{
+        background-color: #007bff;
+        color: white;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;   
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+    }
+
+    form button:hover,
+    form input[type="submit"]:hover{
+        background-color: #0056b3;
+        transform: scale(1.04);
+    }
+
+    .flash-message{
+        padding: 10px 20px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        font-size: 16px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 1)
+    }
+    .flash-message.success {
+        background-color: #28a745;
+        color: white;
+        box-shadow: 0 4px 10px rgba(2, 176, 43, 0.8)
+    }
+    .flash-message.danger {
+        background-color: #dc3545;
+        color: white;
+        box-shadow: 0 4px 10px rgba(176, 16, 2, 0.8)
+    }
+
+    /* for flash message */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .flash-message {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+
+.edit-note-form{
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border-radius: 12px ;
+    box-shadow: 0 4px 12px rgba(0,0,0, 0.1);
+   
+}
+
+.edit-note-form div{
+    margin-bottom: 16px;
+}
+
+.edit-note-form label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: block;
+    color: #333;
+}
+
+.edit-note-form input[type="text"],
+.edit-note-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.edit-note-form input[type="text"]:focus,
+.edit-note-form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.profile-container{
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #ebe0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+.profile-container h1{
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.profile-container p{
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.profile-container a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3S ease;
+}
+
+.profile-container a:hover{
+    background-color: #0056b3;
+}
+.profile-container span{
+    margin-left: 10px;
+}
+
+.notes-list{
+    list-style-type: none;
+}
+
+.note-card {
+    border: 1px;
+    max-height: 16em; /* Approx 4 lines depending on line-height */
+    overflow-y: auto;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background-color: #f7f3f3;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-out;
+  }
+.note-card:hover{
+    box-shadow: 0px 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+  .note-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  /* This holds Delete and Edit */
+  .note-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Optional: Make buttons cuter */
+  .note-btn {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  
+  .note-title {
+    background-color: rgb(244, 241, 235);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+    
+  }
+  
+  .note-content {
+    font-size: 0.95rem;
+    color: #333;
+    border: 0.5px solid rgb(227, 224, 229);
+    border-radius: 3px;
+    overflow-y: auto;
+  }
+  
+.note-meta{
+    background-color: #f1eaea;
+    border-radius: 5px;
+}
+.note-meta strong{
+    margin-left: 3px;
+}
+.note-meta form{
+    padding: 0;
+}
+
+.note-edit{
+    text-decoration: none;
+    margin-right: 5px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    }
+
+.note-edit:hover{
+        background-color: #0056b3;
+        transform: scale(1.04);
+    }
+
+.note-del:hover{
+    background-color: #dc3545;
+}
+
+
+/* add note button*/
+
+/* Add Note Button */
+.add-note-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-note-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Hidden Form Section */
+  .hidden-form {
+    display: none;
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+.logout-wrapper{
+    position: fixed;
+    top: 10px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.logout{
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+  }
+  .logout:hover {
+    background-color: #c82333;
+  }
+
+  .clear-search{
+    text-decoration: none;
+    padding: 5px 8px;
+    background-color: #dc3545;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    transition: background 0.2s ease;
+  }
+  .clear-search:hover{
+    background-color: #c82333;
+  }
+
+
+  /*Register*/
+  .register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .register-form label {
+    font-weight: bold;
+  }
+  
+  .register-form input {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  
+  .register-form span {
+    font-size: 0.9rem;
+    color: red;
+  }
+  
+  .register-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .register-form input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+
+  .page-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1f2f20; 
+    text-shadow: 0px 4px 8px rgba(115, 101, 101, 0.5);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .bottom-link{
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  .bottom-link a{
+    color: green;
+    transition: color 0.3s ease;
+  }
+
+
+
+  .flash-message{
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1)
+}
+.flash-message.success {
+    background-color: #28a745;
+    color: white;
+    box-shadow: 0 4px 10px rgba(2, 176, 43, 0.8)
+}
+.flash-message.danger {
+    background-color: #dc3545;
+    color: white;
+    box-shadow: 0 4px 10px rgba(176, 16, 2, 0.8)
+}
+.flash-message.info {
+    background-color: darkgray;
+    color: black;
+    font-weight: bolder;
+    box-shadow: 0 4px 10px rgba(176, 16, 2, 0.8)
+}
+/* for flash message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flash-message {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.flashes{
+    margin-right: 200px;
+    margin-left: 200px;
+  }
+.login-tag{
+    font-weight: bolder;
+}
+
+.welcome{
+    font-weight: bolder;
+    margin-top: 15px;
+    color: #a04545;
+    text-shadow: 0px 4px 8px rgba(115, 101, 101, 0.5);
+    margin-right: 430px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 8px;
+    margin-left: 430px;
+}
