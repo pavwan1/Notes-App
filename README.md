@@ -1,105 +1,99 @@
 # Notes App 📝
 
-A simple and sleek Notes App built using React (frontend) and Flask with SQLAlchemy (backend). This app helps you create, update, delete, and manage your notes securely with user authentication.
+A simple Notes App built using **Flask**, **Jinja templates**, and **SQLAlchemy**. Users can register, log in, and manage their personal notes securely.
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these instructions to set up and run the project on your local machine.
+These instructions will help you set up and run the project on your local machine.
 
 ---
 
-## 📦 Backend Setup (Flask)
+## 🔧 Prerequisites
 
-### 🔧 Prerequisites
-
-- Python 3.9+
-- pip
+- Python 3.9 or higher
+- pip (Python package manager)
 - Virtual Environment (recommended)
 
-### 🔌 Installation
+---
+
+## 📦 Installation
 
 ```bash
-# Navigate to the backend directory
-cd flask_backend
+# Clone the repository
+git clone https://github.com/YOUR_GITHUB_USERNAME/notes-app.git
 
-# Create virtual environment
+# Navigate to the project directory
+cd notes-app
+
+# Create a virtual environment
 python -m venv venv
 
-# Activate it
+# Activate the virtual environment
 # On Windows
 venv\Scripts\activate
 # On macOS/Linux
 source venv/bin/activate
 
-# Install dependencies
+# Install the dependencies
 pip install -r requirements.txt
+```
 
-# Set up the database
+---
+
+## 🛠️ Database Setup
+
+```bash
+# Run the database setup script (if any)
 python setup_db.py
+```
 
-# Run the Flask app
+Or if you're using Flask-Migrate:
+
+```bash
+flask db init
+flask db migrate
+flask db upgrade
+```
+
+---
+
+## 🚦 Running the App
+
+```bash
+# Set the Flask environment variables
+export FLASK_APP=app
+export FLASK_ENV=development  # Optional: for debug mode
+
+# On Windows (use set instead of export)
+set FLASK_APP=app
+set FLASK_ENV=development
+
+# Run the Flask server
 flask run
 ```
 
-The Flask backend will run by default on:  
-📍 `http://localhost:5000`
+🔗 Open your browser and visit:  
+**http://localhost:5000**
 
 ---
 
-## 🎨 Frontend Setup (React)
+## 💡 Features
 
-### 🔧 Prerequisites
-
-- Node.js
-- npm
-
-### ⚙️ Installation
-
-```bash
-# Navigate to the frontend directory
-cd react_frontend
-
-# Install dependencies
-npm install
-```
-
-### 🚦 Start the App
-
-```bash
-npm start
-```
-
-🌐 Open `http://localhost:3000` to view the app in your browser.  
-The app will reload automatically as you make changes.
+- User registration and login (authentication)
+- Secure password hashing
+- Add, edit, and delete notes
+- Notes linked to specific users
+- Responsive UI with Jinja templates
 
 ---
 
-## 🛠️ Build for Production
+## 📚 Learn More
 
-To create an optimized production build:
-
-```bash
-npm run build
-```
-
-📁 The build artifacts will be stored in the `build/` directory, ready to be deployed.
-
----
-
-## 🚀 Deployment
-
-Refer to the official Create React App docs for deployment:  
-🔗 [CRA Deployment Guide](https://facebook.github.io/create-react-app/docs/deployment)
-
----
-
-## 🧠 Learn More
-
-- [React Docs](https://reactjs.org/)
-- [Flask Docs](https://flask.palletsprojects.com/)
-- [Create React App Docs](https://facebook.github.io/create-react-app/docs/getting-started)
+- [Flask Documentation](https://flask.palletsprojects.com/)
+- [SQLAlchemy Docs](https://docs.sqlalchemy.org/)
+- [Jinja2 Docs](https://jinja.palletsprojects.com/)
 
 ---
 
